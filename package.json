@@ -4,7 +4,7 @@
   "description": "Ini tugas besar WebPro",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --passWithNoTests"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,13 @@
     "tugasbesarwebprogramming": "file:"
   },
   "devDependencies": {
-    "prisma": "^5.7.0"
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "jest": "^29.7.0",
+    "jest-dom": "^4.0.0",
+    "jquery": "^3.7.1",
+    "jsdom": "^25.0.1",
+    "prisma": "^5.7.0",
+    "supertest": "^7.0.0"
   }
 }
