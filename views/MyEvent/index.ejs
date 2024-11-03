@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="./css/MyEvent.css">
+<br>
+<br>
+<section>
+  <div class="container">
+    <h1>My Event</h1>
+    <br>
+    <div class="row">
+      <% userEvents.forEach((userEvent) => { %>
+        <div class="col-md-4">
+          <div class="card event-card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <% if (userEvent.event && userEvent.event.nama_event) { %>
+                    <img src="<%= userEvent.event.poster_event %>" alt="<%= userEvent.event.nama_event %> Image" class="event-image">
+                  <% } else { %>
+                    <img src="https://cdn.dribbble.com/users/1449854/screenshots/4136663/media/381780b56b2f28faa745c43b7ff88086.png" alt="" class="event-image">
+                  <% } %>
+                </div>
+                <div class="col-md-12">
+                  <% if (userEvent.event && userEvent.event.nama_event) { %>
+                    <h5 class="card-title"><%= userEvent.event.nama_event %></h5>
+                  <% } else { %>
+                    <h5 class="card-title">Event Title Not Available</h5>
+                  <% } %>
+                  <p class="card-text">Divisi: <%= userEvent.divisi %></p>
+                  <% if (userEvent.jabatan === 'Ketua Pelaksana') { %>
+                    <p class="card-text">Jabatan: Ketua Pelaksana</p>
+                  <% } else if (userEvent.status === 'ACCEPTED' && userEvent.jabatan) { %>
+                    <p class="card-text">Jabatan: <%= userEvent.jabatan %></p>
+                  <% } else { %>
+                    <p class="card-text">Jabatan: -</p>
+                  <% } %>                                        
+                  <% if (userEvent.jabatan === 'Kepala Divisi' || userEvent.jabatan === 'Sekretaris Divisi'|| userEvent.jabatan === 'Ketua Pelaksana') { %>
+                    <a href="/sekretaris">Dashboard</a>
+                  <% } %>                  
+                </div>
+              </div>
+            </div>
+            <div class="card-footer <%= userEvent.status === 'ACCEPTED' ? 'bg-success' : 'bg-danger' %> text-white">
+              Status: <%= userEvent.status %>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+      
+      <% if (userEvents.length === 0) { %>
+        <p>No events available.</p>
+      <% } %>
+      
+    </div>
+  </div>
+  <div id="pagination" class="pagination">
+    <% if (currentPage > 1) { %>
+      <button class="page-button" onclick="changePage(<%= currentPage - 1 %>)" <%= currentPage === 1 ? 'disabled' : '' %>>Previous</button>
+    <% } %>
+  
+    <% for (let i = 1; i <= totalPages; i++) { %>
+      <button class="page-button <%= (i === currentPage) ? 'active' : '' %>" onclick="changePage(<%= i %>)"><%= i %></button>
+    <% } %>
+  
+    <% if (currentPage < totalPages) { %>
+      <button class="page-button" onclick="changePage(<%= currentPage + 1 %>)">Next</button>
+    <% } %>
+  </div>
+</section>
+
+<script>
+  function changePage(page) {
+    console.log('Changing to page:', page);
+    window.location.href = '?page=' + page;
+  }
+</script>
+<script src="./js/MyEvent.js"></script>

@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="/css/JoinEvent.css" />
+<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+<div class="content">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="row align-items-center">
+          <div class="col-lg-7 mb-5 mb-lg-0">
+            <h2 class="mb-5" id="Event_Divisi"><%= event.nama_event %> - <%= divisi %></h2>
+
+            <form
+              class="border-right pr-5 mb-5"
+              method="post"
+              action="/:eventId/join-event/:divisi" 
+              id="JoinEvent"
+              name="JoinEvent"
+            >
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    id="name"
+                    value="<%= user.nama_depan %> <%= user.nama_belakang %>"
+                    readonly
+                  />
+                </div>
+                <div class="col-md-12 form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="email"
+                    id="email"
+                    value="<%= user.email %>"
+                    readonly
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <textarea required
+                    class="form-control"
+                    name="alasan_join"
+                    id="AlasanJoin"
+                    cols="30"
+                    rows="5"
+                    style="height: 150px"
+                    placeholder="Tulis Alasan Join Event"
+                  ></textarea>
+                </div>
+              </div>
+              <br />
+              <input type="text" style="display: none;"  name="divisi" value=<%= divisi %>>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <input required
+                    type="text"
+                    class="form-control"
+                    name="cv"
+                    id="cv"
+                    placeholder="Masukkan link CV atau Portofolio Anda"
+                  />
+                </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-md-2">
+                  <input
+                    type="button"
+                    value="Cancel"
+                    class="btn btn-secondary rounded-0 py-2 px-4"
+                    onclick="goBack()"
+                  />
+                </div>                             
+                <div class="col-md-2">
+                  <input
+                    type="submit"
+                    value="Submit Request"
+                    class="btn btn-submit rounded-0 py-2 px-4"
+                  />
+                  <span class="submitting"></span>
+                </div>
+              </div>
+            </form>
+            <div id="form-message-warning mt-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="/js/JoinEvent.js"></script>

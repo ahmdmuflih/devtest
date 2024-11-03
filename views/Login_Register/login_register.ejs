@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="./css/login_register.css">	
+<div class="background">
+</div> 
+
+</div>
+<div class="container" id="container">
+	<div class="form-container identitas-container">
+		<form id="identitasForm" method="POST" action="/signup">
+			<h1 style="text-align: center;">Create Account</h1>
+			<div class="center-form">
+				<div class="center-form-left">
+					<input type="email" name="email" placeholder="Email" required/>
+					<input type="password" name="password" placeholder="Password" required/>
+					<input type="text" id="nim" name="nim" placeholder="Nomor Induk Mahasiswa" required/>
+					<input type="text" id="phone" name="phone" placeholder="Phone" required/>
+					<div class="gender-input">
+						<label for="gender">Gender:</label>
+						<input type="radio" id="gender-male" name="gender" value="L" required> Laki-Laki
+						<input type="radio" id="gender-female" name="gender" value="P" required> Perempuan
+					</div>
+				</div>
+				<div class="center-form-right">
+					<input type="text" id="Fname" name="nama_depan" placeholder="First Name" required />
+					<input type="text" id="Lname" name="nama_belakang" placeholder="Last Name" required/>
+					<div class="form-group">
+						<select id="fakultas" name="fakultas" placeholder="Fakultas" required>
+							<option value="" disabled selected>Select your faculty</option>
+							<option value="Fakultas Teknik Elektro">Fakultas Teknik Elektro</option>
+							<option value="Fakultas Rekayasa Industri">Fakultas Rekayasa Industri</option>
+							<option value="Fakultas Informatika">Fakultas Informatika</option>
+							<option value="Fakultas Industri Kreatif">Fakultas Industri Kreatif</option>
+							<option value="Fakultas Komunikasi dan Bisnis">Fakultas Komunikasi dan Bisnis</option>
+							<option value="Fakultas Ekonomi dan Bisnis">Fakultas Ekonomi dan Bisnis</option>
+							<option value="Fakultas Ilmu Terapan">Fakultas Ilmu Terapan</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<select id="prodi" name="program_studi" placeholder="Prodi" required>
+							<option value="" disabled selected>Select your program</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<button id="SignUp">Sign Up</button>
+			<p style="text-align: center; margin-top: 5px;margin-bottom: 5px; font-size: 14px;">
+				Already have an account? <a href="/login" style="color: #B2232F;">Login here</a>.
+			</p>
+		</form>
+
+		
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="/login" method="post">
+			<h1>Sign in</h1>
+			<span>or use your account</span>
+			<input name="email" type="email" placeholder="Email" />
+			<input name="password" type="password" placeholder="Password" />
+			<button id="SignIn">Sign In</button>
+		</form>
+	</div>
+	
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="./js/login_register.js"></script>
