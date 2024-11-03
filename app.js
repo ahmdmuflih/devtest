@@ -91,3 +91,6 @@ app.listen(port, () => {
     `Example app listening on port ${port}, Link= http://localhost:${port}/`
   );
 });
+
+require('dotenv').config();
+console.log(process.env.SONAR_HOST_URL); // untuk menggunakan variabel dari .env
